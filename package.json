@@ -1,0 +1,12 @@
+{
+  "name": "sogmi-donation-kiosk-backend-server",
+  "description": "Backend server for SOGMI donation Kiosk tablet app.",
+  "version": "",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "dotenv": "^6.2.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "square-connect": "^2.20181212.0"
+  }
+}
