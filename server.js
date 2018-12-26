@@ -96,6 +96,7 @@ app.post('/customers/create/', function (req, res){
     })
 })
 
+// Update Customer
 app.post('/customers/update/', function(req, res){
     let squareId = req.body.squareId;
     let firstName = req.body.firstName;
