@@ -13,6 +13,13 @@ app.use(express.static('static'))
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
+app.all("*", function(req, res, next){
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+})
+
 app.get('/', function (req, res){
     return res.render('home');
 });
@@ -63,7 +70,7 @@ app.get('/customers/:id', function (req, res){
 })
 
 // Create Customer
-app.post('/customers/', function (req, res){
+app.post('/customers/create/', function (req, res){
 
     // get parameters from post request
     let firstName = req.body.firstName;
@@ -83,6 +90,28 @@ app.post('/customers/', function (req, res){
     newCustomer.nickname = nickname;
 
     squareCustomers.createCustomer(newCustomer).then(function(data) {
+        return res.json(data);
+    }, function(error){
+        return res.send(error);
+    })
+})
+
+app.post('/customers/update/', function(req, res){
+    let squareId = req.body.squareId;
+    let firstName = req.body.firstName;
+    let lastName = req.body.lastName;
+    let email = req.body.emailAddress;
+    let phone = req.body.phoneNumber;
+    let companyName = req.body.companyName;
+
+    let updatedInfo = new squareConnect.UpdateCustomerRequest();
+    updatedInfo.given_name = firstName;
+    updatedInfo.family_name = lastName;
+    updatedInfo.email_address = email;
+    updatedInfo.phone_number = phone;
+    updatedInfo.companyName = companyName;
+
+    squareCustomers.updateCustomer(squareId, updatedInfo).then(function(data) {
         return res.json(data);
     }, function(error){
         return res.send(error);
