@@ -43,7 +43,6 @@ app.get('/customers', function (req, res){
 // Paginate Through Customers
 app.get('/customers/search', function(req, res){
     let cursor = req.query.cursor
-    console.log(req.query.id)
     let body = new squareConnect.SearchCustomersRequest();
     body.limit = 1
     body.cursor = cursor
@@ -90,8 +89,10 @@ app.post('/customers/create/', function (req, res){
     newCustomer.nickname = nickname;
 
     squareCustomers.createCustomer(newCustomer).then(function(data) {
+        console.log(data)
         return res.json(data);
     }, function(error){
+        console.log(error)
         return res.send(error);
     })
 })
