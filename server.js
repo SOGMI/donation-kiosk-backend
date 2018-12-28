@@ -44,7 +44,7 @@ app.get('/customers', function (req, res){
 app.get('/customers/search', function(req, res){
     let cursor = req.query.cursor
     let body = new squareConnect.SearchCustomersRequest();
-    body.limit = 1
+    body.limit = 1000
     body.cursor = cursor
     body.query = {
         sort: {
@@ -59,7 +59,7 @@ app.get('/customers/search', function(req, res){
 })
 
 // Retrieve Specific Customer
-app.get('/customers/:id', function (req, res){
+app.get('/customers/id/:id', function (req, res){
     let id = req.params.id
     squareCustomers.retrieveCustomer(id).then(function(data){
         return res.json(data);
