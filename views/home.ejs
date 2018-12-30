@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form method="POST" action="/customers/">
+    <form method="POST" action="/customers/create">
         <label for="firstName">First Name</label>
         <input name="firstName" type="text">
         <label for="lastName">Last Name</label>
@@ -16,6 +16,16 @@
         <input name="email" type="email">
         <label for="phone">Phone</label>
         <input name="phone" type="tel">
+        <label for="addressLine1">Address Line 1</label>
+        <input type="text" name="addressLine1">
+        <label for="addressLine2">Address Line 2</label>
+        <input type="text" name="addressLine2" id="">
+        <label for="city">City</label>
+        <input type="text" name="city" id="">
+        <label for="state">State</label>
+        <input type="text" name="state" id="">
+        <label for="zipCode">Zip Code</label>
+        <input type="number" name="zipCode" id="">
         <input value="submit" type="submit">
     </form>
 </body>

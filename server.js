@@ -78,6 +78,17 @@ app.post('/customers/create/', function (req, res){
     let phone = req.body.phone;
     let nickname = req.body.nickname;
     let companyName = req.body.company;
+    let note = req.body.note;
+    let birthday = req.body.birthday;
+    let address = {
+        address_line_1: req.body.addressLine1,
+        address_line_2: req.body.addressLine2,
+        address_line_3: req.body.addressLine3,
+        locality: req.body.city,
+        administrative_district_level_1: req.body.state,
+        postal_code: req.body.zipCode,
+        country: "US"
+    }
 
     // pass parameters onto new customer
     let newCustomer = new squareConnect.CreateCustomerRequest();
@@ -87,6 +98,9 @@ app.post('/customers/create/', function (req, res){
     newCustomer.phone_number = phone;
     newCustomer.company_name = companyName;
     newCustomer.nickname = nickname;
+    newCustomer.address = address;
+    newCustomer.note = note;
+    newCustomer.birthday = birthday;
 
     squareCustomers.createCustomer(newCustomer).then(function(data) {
         console.log(data)
