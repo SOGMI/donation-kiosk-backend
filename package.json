@@ -3,10 +3,10 @@
   "description": "Backend server for SOGMI donation Kiosk tablet app.",
   "version": "",
   "dependencies": {
-    "body-parser": "^1.18.3",
+    "body-parser": "^1.19.0",
     "dotenv": "^6.2.0",
-    "ejs": "^2.6.1",
-    "express": "^4.16.4",
-    "square-connect": "^2.20181212.0"
+    "ejs": "^2.6.2",
+    "express": "^4.17.1",
+    "square-connect": "^2.20190724.0"
   }
 }
