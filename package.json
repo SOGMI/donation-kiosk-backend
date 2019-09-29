@@ -1,7 +1,7 @@
 {
   "name": "sogmi-donation-kiosk-backend-server",
   "description": "Backend server for SOGMI donation Kiosk tablet app.",
-  "version": "",
+  "version": "1.2.0",
   "scripts": {
     "start": "node server.js"
   },
